@@ -1,19 +1,13 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from gunclub.views import home, user_dashboard, admin_dashboard
+
 
 urlpatterns = patterns('',
     url(r'^accounts/', include('registration.backends.default.urls')),
-    url(r'^$', 'gunclub.views.home', name='home'),
-    # url(r'^gunclub/', include('gunclub.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', home, name='home'),
+    url(r'^dashboard/user/', user_dashboard, name='user_dashboard'),
+    url(r'^dashboard/admin/', admin_dashboard, name='admin_dashboard'),
 )
 urlpatterns += staticfiles_urlpatterns()
