@@ -1,6 +1,13 @@
 # Django settings for gunclub project.
 
-DEBUG = True
+import os
+import sys
+
+ROOT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT_PATH not in sys.path:
+    sys.path.append(ROOT_PATH)
+
+DEBUG = False 
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -64,6 +71,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    os.path.join(ROOT_PATH, 'static'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -103,6 +111,7 @@ ROOT_URLCONF = 'gunclub.urls'
 WSGI_APPLICATION = 'gunclub.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(ROOT_PATH, 'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -149,3 +158,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from development_settings import *
+except ImportError, e:
+    print 'Unable to load local_settings.py:', e
