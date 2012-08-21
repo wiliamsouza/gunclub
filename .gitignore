@@ -6,5 +6,6 @@ dist
 bin
 include
 lib
+lib64
 local
 development_settings.py
