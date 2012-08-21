@@ -124,6 +124,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -158,6 +159,9 @@ LOGGING = {
         },
     }
 }
+
+# django-registration setting
+ACCOUNT_ACTIVATION_DAYS = 7
 
 try:
     from development_settings import *

@@ -6,6 +6,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^accounts/', include('registration.backends.default.urls')),
     # Examples:
     # url(r'^$', 'gunclub.views.home', name='home'),
     # url(r'^gunclub/', include('gunclub.foo.urls')),
