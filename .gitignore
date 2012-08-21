@@ -1,0 +1,9 @@
+*.pyc
+*.swp
+*.sqlite3
+build
+dist
+bin
+include
+lib
+local
