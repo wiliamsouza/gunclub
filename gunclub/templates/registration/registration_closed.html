@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Registration disabled" %}{% endblock %}
+
+{% block page %}
+  <div class="alert alert-error">
+    <h2>{% trans "Registration disabled" %}</h2>
+    <p>{% trans "Self registration is disabled. Please contact the administrator." %}</p>
+  </div>
+{% endblock %}

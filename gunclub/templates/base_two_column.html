@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block page %}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">{% block sidebar %}{% endblock %}</div>
+		<div class="span10">{% block content %}{% endblock%}</div>
+	</div> <!-- row_fluid -->
+</div> <!-- container-fluid -->
+{% endblock page %}

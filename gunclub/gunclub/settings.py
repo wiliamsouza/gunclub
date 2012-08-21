@@ -160,8 +160,9 @@ LOGGING = {
     }
 }
 
-# django-registration setting
+# django-registration settings
 ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_OPEN = False
 
 try:
     from development_settings import *
