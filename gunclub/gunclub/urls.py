@@ -7,8 +7,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = patterns('',
     url(r'^accounts/', include('registration.backends.default.urls')),
-    # Examples:
-    # url(r'^$', 'gunclub.views.home', name='home'),
+    url(r'^$', 'gunclub.views.home', name='home'),
     # url(r'^gunclub/', include('gunclub.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
