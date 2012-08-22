@@ -46,14 +46,14 @@ img {
 }
 
 .login {
-  width: 380px;
-  margin-top: 80px;
+  width: 350px;
+  margin-top: 70px;
   margin-left: auto;
   margin-right: auto; 
-  background: white url('/static/img/logo2.png') no-repeat center 35px;
+  background: white url('/static/img/logo2.png') no-repeat center 15px;
   border: 1px solid #e1e1e1;
   max-height: none;
-  padding-top: 180px;
+  padding-top: 140px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -72,4 +72,14 @@ img {
 .login form {
   padding: 0 0 0 0;
   margin: 0 0 0 0;
+}
+
+.sidebar {
+  /**background-color: #bbd8e9;**/
+  padding-top: 10px;
+}
+
+.content {
+  /**background-color: #dceaf4;**/
+  padding-top: 10px;
 }

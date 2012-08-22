@@ -3,8 +3,36 @@
 {% block page %}
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span2">{% block sidebar %}{% endblock %}</div>
-    <div class="span10">{% block content %}{% endblock%}</div>
+    <div class="span2">
+      <div class="sidebar">
+        <ul class="nav nav-tabs nav-stacked">
+        {% block menu %}{% endblock %}
+        </ul>
+      </div> <!-- sidebar -->
+    </div> <!-- span2 -->
+    <div class="span10">
+      <div class="content">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container-fluid">
+              <a class="brand" href="#">{{ title }}</a>
+              {% if user.is_authenticated %}
+                <div class="nav-collapse collapse">
+                <p class="navbar-text pull-right">
+                  {% trans "Logged in as" %} {{ user.username }} / 
+                  <a href="/accounts/password/change/" class="navbar-link">
+                  {% trans "change password" %}</a> / 
+                  <a href="/accounts/logout/" class="navbar-link">
+                  {% trans "logout" %}</a>
+                </p>
+              </div><!-- nav-collapse -->
+              {% endif %}
+            </div> <!-- container-fluid -->
+          </div> <!-- navbar-inner -->
+        </div> <!-- navbar -->
+        {% block content %}{% endblock%} 
+      </div> <!-- content -->
+    </div> <!-- span10 -->
   </div> <!-- row_fluid -->
 </div> <!-- container-fluid -->
 {% endblock page %}

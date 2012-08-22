@@ -5,6 +5,7 @@ from django.utils.translation import ugettext as _
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 
+
 @login_required
 def home(request):
     if request.user.is_staff:
@@ -15,11 +16,12 @@ def home(request):
 
 @login_required
 def user_dashboard(request):
+    title = _("Profile")
     return render_to_response(
-        'user/dashboard.html',
+        'dashboard/user.html',
         context_instance=RequestContext(
             request,
-            {'a': '',
+            {'title': title,
              'b': '',}
             )
         )
@@ -27,13 +29,14 @@ def user_dashboard(request):
 
 @login_required
 def admin_dashboard(request):
+    title = _("Member")
     if not request.user.is_staff:
         return HttpResponseForbidden()
     return render_to_response(
-        'admin/dashboard.html',
+        'dashboard/admin.html',
         context_instance=RequestContext(
             request,
-            {'a': '',
+            {'title': title,
              'b': '',}
             )
         )
