@@ -83,3 +83,11 @@ img {
   /**background-color: #dceaf4;**/
   padding-top: 10px;
 }
+
+.controls {
+  padding-bottom: 20px;
+}
+
+.pagination {
+  text-align: center;
+}
