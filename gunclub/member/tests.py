@@ -1,16 +1,24 @@
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
+from django.test import LiveServerTestCase
 
-Replace this with more appropriate tests for your application.
-"""
+from selenium.webdriver.firefox.webdriver import  WebDriver
 
-from django.test import TestCase
+class LoginTest(LiveServerTestCase):
+    fixtures = ['admin_data.json']
 
+    @classmethod
+    def setUpClass(cls):
+        cls.selenium  = WebDriver()
+        super(LoginTest, cls).setUpClass()
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+    @classmethod
+    def tearDowClass(cls):
+        super(LoginTest, cls).tearDownClass()
+        cls.selenium.quit()
+
+    def test_login(self):
+        self.selenium.get('%s%s' % (self.live_server_url, '/accounts/login/'))
+        username_input = self.selenium.find_element_by_name("username")
+        username_input.send_keys('admin')
+        password_input = self.selenium.find_element_by_name("password")
+        password_input.send_keys('secret')
+        self.selenium.find_element_by_xpath('//button[@value="login"]').click()
