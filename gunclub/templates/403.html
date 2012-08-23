@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Access denied" %}{% endblock %}
+{% block page %}
+<div class="alert alert-error">
+  <h2>{% trans "Access to the webpage was denied" %}</h2>
+  <p>{% trans "You are not authorized to access this webpage.
+  You may need to log in as admin." %}</p>
+</div>
+{% endblock %}
