@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'registration',
     'member',
+    'django_nose'
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -160,6 +161,9 @@ LOGGING = {
         },
     }
 }
+
+# Set nose test runner
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 # After login redirect to the root url
 LOGIN_REDIRECT_URL = '/'

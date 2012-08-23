@@ -1,3 +1,6 @@
 Django
 django-registration
 selenium
+nose
+django-nose
+coverage
