@@ -1,4 +1,6 @@
-# Django developemnt settings for gunclub project.
+"""
+Django developemnt settings for gunclub project.
+"""
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
