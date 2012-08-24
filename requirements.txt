@@ -7,6 +7,3 @@ nose
 django-nose
 coverage
 pylint
-
-# Continous integration
-django-jenkins
