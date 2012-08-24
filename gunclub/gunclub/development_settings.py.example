@@ -25,3 +25,8 @@ FIXTURE_DIRS = (
     'tests/',
     'tests/fixtures/',
 )
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=gunclub.views,member',
+]
