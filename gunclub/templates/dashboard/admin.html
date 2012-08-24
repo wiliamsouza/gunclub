@@ -1,8 +1,9 @@
 {% extends "base_two_column.html" %}
 {% load i18n %}
+{% block brand-url %}{% url admin_dashboard %}{% endblock %}
 {% block menu %}
-  <li class="active"><a href="#">Member</a></li>
-  <li><a href="#">Invoice</a></li>
+<li class="active"><a href="#">Member</a></li>
+<li><a href="#">Invoice</a></li>
 {% endblock menu %}
 {% block content %}
 

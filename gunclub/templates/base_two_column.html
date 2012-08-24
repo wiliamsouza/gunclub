@@ -15,7 +15,9 @@
         <div class="navbar">
           <div class="navbar-inner">
             <div class="container-fluid">
-              <a class="brand" href="#">{{ title }}</a>
+              <a class="brand" href="{% block brand-url %}{% endblock %}">
+                {{ title }}
+              </a>
               {% if user.is_authenticated %}
                 <div class="nav-collapse collapse">
                 <p class="navbar-text pull-right">

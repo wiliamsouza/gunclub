@@ -22,7 +22,7 @@ def home(request):
 @login_required
 def user_dashboard(request):
     """ User dashboard """
-    title = _("Profile")
+    title = _('User dashboard')
     return render_to_response(
         'dashboard/user.html',
         context_instance=RequestContext(
@@ -36,7 +36,7 @@ def user_dashboard(request):
 @login_required
 def admin_dashboard(request):
     """ Administrator dashboard  """
-    title = _("Member")
+    title = _('Admin dashboard')
     if not request.user.is_staff:
         return HttpResponseForbidden()
     return render_to_response(

@@ -1,5 +1,6 @@
 {% extends "base_two_column.html" %}
 {% load i18n %}
+{% block brand-url %}{% url user_dashboard %}{% endblock %}
 {% block menu %}
   <li class="active"><a href="#">Profile</a></li>
   <li><a href="#">Guns</a></li>
