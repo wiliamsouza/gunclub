@@ -18,30 +18,30 @@ At this stage gunclub is only suitable for developers who want to contribute
 but you have an interest on use it to manage your gun club let me know
 sending a mail to wiliamsouza83@gmail.com.
 
-Start cloning the repo:
+Start cloning the repo::
 
     git clone git://github.com/wiliamsouza/gunclub.git
 
-Create a virtual environment:
+Create a virtual environment::
 
     virtualenv gunclub
 
-Activate virtual environment:
+Activate virtual environment::
 
     cd gunclub
     source bin/activate
     pip install -r requirements.txt 
 
-Running unit tests:
+Running unit tests::
 
     cd gunclub
     python manage.py tests
 
-Running Django development server:
+Running Django development server::
 
     python manage.py runserver
 
-You'll see the following output on the command line:
+You'll see the following output on the command line::
 
     Validating models...
     0 errors found.
