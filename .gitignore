@@ -11,3 +11,6 @@ local
 development_settings.py
 man
 .coverage
+coverage.xml
+nosetests.xml
+pylint.out
