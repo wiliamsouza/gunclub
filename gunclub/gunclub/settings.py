@@ -172,6 +172,9 @@ LOGIN_REDIRECT_URL = '/'
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_OPEN = False
 
+# User profile models
+AUTH_PROFILE_MODULE = 'member.Profile'
+
 try:
     from development_settings import *
 except ImportError, e:
