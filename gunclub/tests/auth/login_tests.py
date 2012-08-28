@@ -1,7 +1,10 @@
+""" Login required as redirect tests.
+"""
+
 from django.test import TestCase
 
 
-class ClientTest(TestCase):
+class LoginTest(TestCase):
     fixtures = ['users_data.json']
 
     def test_login_required_home(self):
