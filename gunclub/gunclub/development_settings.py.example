@@ -21,6 +21,7 @@ LANGUAGE_CODE = 'en-us'
 USE_I18N = False 
 USE_L10N = False 
 USE_TZ = False 
+
 FIXTURE_DIRS = (
     'tests/',
     'tests/fixtures/',
@@ -28,5 +29,5 @@ FIXTURE_DIRS = (
 
 NOSE_ARGS = [
     '--with-coverage',
-    '--cover-package=gunclub.views,member',
+    '--cover-package=dashboard,member',
 ]
