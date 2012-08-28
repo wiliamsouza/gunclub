@@ -3,6 +3,7 @@ Root view for gunclub project
 """
 
 from django.template import RequestContext
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 from django.utils.translation import ugettext as _
@@ -23,12 +24,13 @@ def home(request):
 def user_dashboard(request):
     """ User dashboard """
     title = _('User dashboard')
+    members = User.objects.all()
     return render_to_response(
         'dashboard/user.html',
         context_instance=RequestContext(
             request,
             {'title': title,
-             'b': '',}
+             'members': members,}
             )
         )
 
@@ -37,6 +39,7 @@ def user_dashboard(request):
 def admin_dashboard(request):
     """ Administrator dashboard  """
     title = _('Admin dashboard')
+    members = User.objects.all()
     if not request.user.is_staff:
         return HttpResponseForbidden()
     return render_to_response(
@@ -44,6 +47,6 @@ def admin_dashboard(request):
         context_instance=RequestContext(
             request,
             {'title': title,
-             'b': '',}
+             'members': members,}
             )
         )
