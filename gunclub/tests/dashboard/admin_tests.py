@@ -12,7 +12,6 @@ class AdminTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.context['members']), 2)
         self.assertEqual(response.context['title'], 'Admin dashboard')
-        self.assertTrue('form' in response.context)
 
     def test_user_dashboard(self):
         self.client.login(username='user', password='secret')
@@ -20,4 +19,3 @@ class AdminTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.context['members']), 2)
         self.assertEqual(response.context['title'], 'User dashboard')
-        self.assertTrue('form' in response.context)
