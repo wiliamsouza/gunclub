@@ -7,3 +7,4 @@ nose
 django-nose
 coverage
 pylint
+pep8
