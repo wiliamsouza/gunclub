@@ -10,6 +10,8 @@ from django.utils.translation import ugettext as _
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 
+from member.forms import MemberForm
+
 
 @login_required
 def home(request):
@@ -25,12 +27,14 @@ def user_dashboard(request):
     """ User dashboard """
     title = _('User dashboard')
     members = User.objects.all()
+    form = MemberForm()
     return render_to_response(
         'dashboard/user.html',
         context_instance=RequestContext(
             request,
             {'title': title,
-             'members': members,}
+             'members': members,
+             'form': form,}
             )
         )
 
@@ -47,6 +51,7 @@ def admin_dashboard(request):
         context_instance=RequestContext(
             request,
             {'title': title,
-             'members': members,}
+             'members': members,
+             'form': form,}
             )
         )
