@@ -1,5 +1,4 @@
-"""
-Member application tests.
+""" Member application tests.
 """
 
 from datetime import date
