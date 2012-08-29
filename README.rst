@@ -1,6 +1,4 @@
-=======
-Gunclub
-=======
+.. image:: https://raw.github.com/wiliamsouza/gunclub/master/gunclub/static/img/gunclub290x52.png
 
 Gunclub provides a management software for small gun club.
 
