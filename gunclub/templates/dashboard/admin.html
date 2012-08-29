@@ -6,23 +6,27 @@
 <li><a href="#">Invoice</a></li>
 {% endblock menu %}
 {% block content %}
-
-
-
 <div class="modal hide fade" id="addMemberForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Modal header</h3>
-  </div>
-  <div class="modal-body">
-    <p>One fine body…</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
-  </div>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+    ×
+    </button>
+    <h3 id="myModalLabel">{% trans "Add member" %}</h3>
+  </div> <!-- modal-header -->
+  <form method="post">{% csrf_token %}
+    <fieldset>
+      <div class="modal-body">
+        {% include "_form_body.html" %}
+      </div> <!-- modal-body -->
+    <fieldset>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">
+      Close
+      </button>
+      <input type="submit" class="btn btn-primary" value="{% trans "Add member" %}">
+    </div> <!-- modal-footer -->
+  </form>
 </div>
-
 
 <div class="controls pull-right">
 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addMemberForm">{% trans "New member"%}</button>
