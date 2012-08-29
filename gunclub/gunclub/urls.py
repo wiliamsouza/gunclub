@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from gunclub.views import home, user_dashboard, admin_dashboard
+from dashboard.views import home, user_dashboard, admin_dashboard
 
 
 urlpatterns = patterns('',
