@@ -44,6 +44,7 @@ def admin_dashboard(request):
     """ Administrator dashboard  """
     title = _('Admin dashboard')
     members = User.objects.all()
+    form = MemberForm()
     if not request.user.is_staff:
         return HttpResponseForbidden()
     return render_to_response(
