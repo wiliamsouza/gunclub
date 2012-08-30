@@ -1,10 +1,2 @@
 Django
 django-registration
-
-# Test dependencies
-selenium
-nose
-django-nose
-coverage
-pylint
-pep8
