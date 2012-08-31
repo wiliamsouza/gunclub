@@ -8,7 +8,8 @@
 {% block content %}
 <div class="modal hide fade" id="addMemberForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+    <button type="button" class="close" data-dismiss="modal"
+    aria-hidden="true">
     ×
     </button>
     <h3 id="myModalLabel">{% trans "Add member" %}</h3>
@@ -27,65 +28,42 @@
     </div> <!-- modal-footer -->
   </form>
 </div>
-
 <div class="controls pull-right">
-<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addMemberForm">{% trans "New member"%}</button>
-<button class="btn btn-danger disabled" type="button">{% trans "Delete" %}</button>
-</div>
-
+  <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addMemberForm">{% trans "New member" %}</button>
+  <button class="btn btn-danger disabled" type="button">
+    {% trans "Delete" %}
+  </button>
+</div> <!-- controls pull-right -->
 <form class="form-search">
   <input type="text" class="input-medium search-query">
-  <button type="submit" class="btn">Search</button>
-</form>
-   
-           <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                  <td><input type="checkbox"></td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                  <td><input type="checkbox"></td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-              </tbody>
-            </table>
-
-
+  <button type="submit" class="btn">{% trans "Search" %}</button>
+</form> <!-- form-search -->
+{% if members %}
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>{% trans "First Name" %}</th>
+      <th>{% trans "Last Name" %}</th>
+      <th>{% trans "Username" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for member in members %}
+  <tr class="{% cycle 'row1' 'row2' %}">
+    <td><input type="checkbox"></td>
+    <td>{{ member.frist_name }}</td>
+    <td>{{ member.last_name }}</td>
+    <td><a href="#">{{ member.username }}</a></td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+  <p>{% trans "There are no users here at the moment." %}</p>
+</div>
+{% endif %}
 <div class="pagination">
   <ul>
     <li><a href="#">Prev</a></li>
@@ -96,5 +74,4 @@
     <li><a href="#">Next</a></li>
   </ul>
 </div>
-
 {% endblock content %}
