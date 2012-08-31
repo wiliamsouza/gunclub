@@ -65,7 +65,7 @@ class MemberForm(forms.ModelForm):
 
     class Meta:
         exclude = ['user',]
-        fiels = [
+        fields = [
             'username',
             'email',
             'pass1',
