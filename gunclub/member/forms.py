@@ -1,6 +1,12 @@
+"""
+Member forms for gunclub 
+"""
+
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.sites.models import get_current_site
 from django.utils.translation import ugettext_lazy as _
+from registration.models import RegistrationProfile
 
 from member.models import Profile
 
@@ -21,19 +27,25 @@ class MemberForm(forms.ModelForm):
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
                                                                maxlength=75)),
                              label=_("E-mail"))
-    pass1 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict,
-                                                           render_value=False),
-                                label=_("Password"))
-    pass2 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict,
-                                                           render_value=False),
-                                label=_("Password (again)"))
-
     first_name = forms.CharField(widget=forms.TextInput(attrs=dict(attrs_dict,
                                                                maxlength=30)),
                                  label=_('first name'))
     last_name = forms.CharField(widget=forms.TextInput(attrs=dict(attrs_dict,
                                                                maxlength=30)),
                                 label=_('last name'))
+
+    def save(self, request):
+        profile = Profile()
+        user = RegistrationProfile.objects.create_inactive_user(
+            username=self.cleaned_data['username'],
+            email=self.cleaned_data['email'],
+            password='$up3rS3cr3t',
+            site=get_current_site(request),
+            send_email=True,
+        )
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.save()
 
     def clean_username(self):
         """
@@ -49,27 +61,11 @@ class MemberForm(forms.ModelForm):
         else:
             return self.cleaned_data['username']
 
-    def clean(self):
-        """
-        Verifiy that the values entered into the two password fields
-        match. Note that an error here will end up in
-        ``non_field_errors()`` because it doesn't apply to a single
-        field.
-
-        """
-        if 'pass1' in self.cleaned_data and 'pass2' in self.cleaned_data:
-            if self.cleaned_data['pass1'] != self.cleaned_data['pass2']:
-                error_msg = _("The two password fields didn't match.")
-                raise forms.ValidationError(error_msg)
-        return self.cleaned_data
-
     class Meta:
         exclude = ['user',]
         fields = [
             'username',
             'email',
-            'pass1',
-            'pass2',
             'first_name',
             'last_name',
             'is_member',
