@@ -14,7 +14,7 @@
     </button>
     <h3 id="myModalLabel">{% trans "Add member" %}</h3>
   </div> <!-- modal-header -->
-  <form method="post">{% csrf_token %}
+  <form method="post" action="{% url add_member %}">{% csrf_token %}
     <fieldset>
       <div class="modal-body">
         {% include "_form_body.html" %}
