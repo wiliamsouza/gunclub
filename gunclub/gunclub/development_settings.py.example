@@ -31,3 +31,5 @@ NOSE_ARGS = [
     '--with-coverage',
     '--cover-package=dashboard,member',
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
