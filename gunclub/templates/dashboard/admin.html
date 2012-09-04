@@ -43,8 +43,8 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>{% trans "First Name" %}</th>
-      <th>{% trans "Last Name" %}</th>
+      <th>{% trans "First name" %}</th>
+      <th>{% trans "Last name" %}</th>
       <th>{% trans "Username" %}</th>
     </tr>
   </thead>
@@ -52,7 +52,7 @@
   {% for member in members %}
   <tr class="{% cycle 'row1' 'row2' %}">
     <td><input type="checkbox"></td>
-    <td>{{ member.frist_name }}</td>
+    <td>{{ member.first_name }}</td>
     <td>{{ member.last_name }}</td>
     <td><a href="#">{{ member.username }}</a></td>
   </tr>
