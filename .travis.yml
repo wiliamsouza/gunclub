@@ -7,8 +7,9 @@ install:
   - "pip install -r test-requirements.txt --use-mirrors"
 before_script:
   - cp gunclub/gunclub/development_settings.py.example gunclub/gunclub/development_settings.py
+  - cd gunclub/
 script:
-  - python manager.py test 
+  - python manage.py test 
 notifications:
   irc:
     channels: "irc.freenode.org#gunclub"
