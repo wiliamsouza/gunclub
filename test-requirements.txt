@@ -1,5 +1,6 @@
 selenium
 nose
+nose-exclude
 django-nose
 coverage
 pylint

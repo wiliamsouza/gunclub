@@ -30,6 +30,7 @@ FIXTURE_DIRS = (
 NOSE_ARGS = [
     '--with-coverage',
     '--cover-package=dashboard,member',
+    '--exclude-dir=tests/selenium',
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
