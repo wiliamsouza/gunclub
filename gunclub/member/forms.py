@@ -10,32 +10,18 @@ from registration.models import RegistrationProfile
 
 from member.models import Profile
 
-attrs_dict = {'class': 'required'}
 
-
-class MemberForm(forms.ModelForm):
-    """
-    Most of this code came from django-registration form thanks James Bennett
-    and is licensed under: https://bitbucket.org/ubernostrum/django-registration/src/27bccd108cde/LICENSE.
-    """
+class AddMemberForm(forms.ModelForm):
     username = forms.RegexField(regex=r'^[\w.@+-]+$',
                                 max_length=30,
-                                widget=forms.TextInput(attrs=attrs_dict),
                                 label=_("Username"),
                                 error_messages={'invalid': _("This value may "
                   "contain only letters, numbers and @/./+/-/_ characters.")})
-    email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
-                                                               maxlength=75)),
-                             label=_("E-mail"))
-    first_name = forms.CharField(widget=forms.TextInput(attrs=dict(attrs_dict,
-                                                               maxlength=30)),
-                                 label=_('first name'))
-    last_name = forms.CharField(widget=forms.TextInput(attrs=dict(attrs_dict,
-                                                               maxlength=30)),
-                                label=_('last name'))
+    email = forms.EmailField(max_length=75, label=_("E-mail"))
+    first_name = forms.CharField(max_length=30, label=_('first name'))
+    last_name = forms.CharField(max_length=30, label=_('last name'))
 
-    def save(self, request):
-        profile = Profile()
+    def save(self, request, *args, **kwargs):
         user = RegistrationProfile.objects.create_inactive_user(
             username=self.cleaned_data['username'],
             email=self.cleaned_data['email'],
@@ -43,9 +29,17 @@ class MemberForm(forms.ModelForm):
             site=get_current_site(request),
             send_email=True,
         )
-        user.first_name = self.cleaned_data['first_name']
-        user.last_name = self.cleaned_data['last_name']
+        user.first_name = self.cleaned_data.get('first_name')
+        user.last_name = self.cleaned_data.get('last_name')
         user.save()
+        profile = user.get_profile()
+        profile.rg = self.cleaned_data.get('rg')
+        profile.cpf = self.cleaned_data.get('cpf')
+        profile.date_of_birth = self.cleaned_data.get('date_of_birth')
+        profile.job_position = self.cleaned_data.get('job_position')
+        profile.is_member = self.cleaned_data.get('is_member') 
+        profile.save()
+        return profile
 
     def clean_username(self):
         """
@@ -65,6 +59,39 @@ class MemberForm(forms.ModelForm):
         exclude = ['user',]
         fields = [
             'username',
+            'email',
+            'first_name',
+            'last_name',
+            'rg',
+            'cpf',
+            'date_of_birth',
+            'job_position',
+            'is_member',
+        ]
+        model = Profile
+
+
+class EditMemberForm(forms.ModelForm):
+    first_name = forms.CharField(max_length=30, label=_('first name'))
+    last_name = forms.CharField(max_length=30, label=_('last name'))
+    email = forms.EmailField(max_length=75, label=_("E-mail"))
+
+    def __init__(self, *args, **kwargs):
+        super(EditMemberForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].initial = self.instance.user.first_name
+        self.fields['last_name'].initial = self.instance.user.last_name
+        self.fields['email'].initial = self.instance.user.email
+
+    def save(self, *args, **kwargs):
+        super(EditMemberForm, self).save(*args, **kwargs)
+        self.instance.user.first_name = self.cleaned_data.get('first_name')
+        self.instance.user.last_name = self.cleaned_data.get('last_name')
+        self.instance.user.email = self.cleaned_data.get('email')
+        self.instance.user.save()
+
+    class Meta:
+        exclude = ['user',]
+        fields = [
             'email',
             'first_name',
             'last_name',
