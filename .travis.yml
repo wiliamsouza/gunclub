@@ -8,7 +8,7 @@ install:
 before_script:
   - cp gunclub/gunclub/development_settings.py.example gunclub/gunclub/development_settings.py
 script:
-  - python gunclub/manager.py test 
+  - python manager.py test 
 notifications:
   irc:
     channels: "irc.freenode.org#gunclub"
