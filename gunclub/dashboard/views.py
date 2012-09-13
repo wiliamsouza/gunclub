@@ -26,11 +26,13 @@ def home(request):
 def user_dashboard(request):
     """ User dashboard """
     title = _('User dashboard')
+    members = User.objects.all()
     return render_to_response(
         'dashboard/user.html',
         context_instance=RequestContext(
             request,
-            {'title': title,}
+            {'title': title,
+             'members': members,}
             )
         )
 
