@@ -1,4 +1,5 @@
 {% extends "base_two_column.html" %}
+{% load pagination_tags %}
 {% load i18n %}
 {% block brand-url %}{% url admin_dashboard %}{% endblock %}
 {% block menu %}
@@ -30,19 +31,16 @@
 </div>
 <div class="controls pull-right">
   <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addMemberForm">{% trans "New member" %}</button>
-  <button class="btn btn-danger disabled" type="button">
-    {% trans "Delete" %}
-  </button>
 </div> <!-- controls pull-right -->
 <form class="form-search">
   <input type="text" class="input-medium search-query">
   <button type="submit" class="btn">{% trans "Search" %}</button>
 </form> <!-- form-search -->
 {% if members %}
+{% autopaginate members %}
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>#</th>
       <th>{% trans "First name" %}</th>
       <th>{% trans "Last name" %}</th>
       <th>{% trans "Username" %}</th>
@@ -51,10 +49,9 @@
   <tbody>
   {% for member in members %}
   <tr class="{% cycle 'row1' 'row2' %}">
-    <td><input type="checkbox"></td>
     <td>{{ member.first_name }}</td>
     <td>{{ member.last_name }}</td>
-    <td><a href="#">{{ member.username }}</a></td>
+    <td><a href="{% url edit_member member.id %}">{{ member.username }}</a></td>
   </tr>
   {% endfor %}
   </tbody>
@@ -64,14 +61,5 @@
   <p>{% trans "There are no users here at the moment." %}</p>
 </div>
 {% endif %}
-<div class="pagination">
-  <ul>
-    <li><a href="#">Prev</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">Next</a></li>
-  </ul>
-</div>
+{% paginate %}
 {% endblock content %}
