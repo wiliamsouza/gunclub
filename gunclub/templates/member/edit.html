@@ -1,26 +1,18 @@
 {% extends "base_two_column.html" %}
 {% load i18n %}
-{% block brand-url %}{% url admin_dashboard %}{% endblock %}
-{% block menu %}
-<li class="active"><a href="#">Member</a></li>
-<li><a href="#">Invoice</a></li>
-{% endblock menu %}
 {% block content %}
-<div class="modal" id="addMemberForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div>
   <div class="modal-header">
-    <h3 id="myModalLabel">{% trans "Edit member" %}</h3>
+    <h3>{% trans "Edit member" %}</h3>
   </div> <!-- modal-header -->
-  <form method="post" action="{% url add_member %}">{% csrf_token %}
+  <form class="form-horizontal" method="post" action="{% url edit_member member_id %}">{% csrf_token %}
     <fieldset>
       <div class="modal-body">
-        {% include "_form_body.html" %}
+        {% include "_form_body_horizontal.html" %}
       </div> <!-- modal-body -->
     <fieldset>
     <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">
-      Close
-      </button>
-      <input type="submit" class="btn btn-primary" value="{% trans "Save" %}">
+      <input type="submit" class="btn btn-primary" value="{% trans "Add member" %}">
     </div> <!-- modal-footer -->
   </form>
 </div>
