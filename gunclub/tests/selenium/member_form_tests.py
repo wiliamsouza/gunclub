@@ -11,7 +11,7 @@ class MemberFormTest(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         cls.selenium  = WebDriver()
-        super(LoginTest, cls).setUpClass()
+        super(MemberFormTest, cls).setUpClass()
 
     @classmethod
     def tearDownClass(cls):
