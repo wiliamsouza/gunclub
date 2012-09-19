@@ -30,11 +30,15 @@
   </form>
 </div>
 <div class="controls pull-right">
-  <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addMemberForm">{% trans "New member" %}</button>
+  <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addMemberForm">
+    <i class="icon-plus icon-white"></i> {% trans "New member" %}
+  </button>
 </div> <!-- controls pull-right -->
-<form class="form-search">
-  <input type="text" class="input-medium search-query">
-  <button type="submit" class="btn">{% trans "Search" %}</button>
+<form class="form-search" action="{% url haystack_search %}" method="get">
+  <input type="text" name="q" class="input-medium search-query">
+  <button type="submit" class="btn">
+    <i class="icon-search"></i> {% trans "Search" %}
+  </button>
 </form> <!-- form-search -->
 {% if members %}
 {% autopaginate members %}
@@ -44,6 +48,7 @@
       <th>{% trans "First name" %}</th>
       <th>{% trans "Last name" %}</th>
       <th>{% trans "Username" %}</th>
+      <th>{% trans "Actions" %}</th>
     </tr>
   </thead>
   <tbody>
@@ -51,7 +56,18 @@
   <tr class="{% cycle 'row1' 'row2' %}">
     <td>{{ member.first_name }}</td>
     <td>{{ member.last_name }}</td>
-    <td><a href="{% url edit_member member.id %}">{{ member.username }}</a></td>
+    <td>{{ member.username }}</td>
+    <td>
+      <a class="btn btn-inverse" href="">
+        <i class="icon-list-alt icon-white"></i> {% trans "View" %}
+      </a>
+      <a class="btn btn-inverse" href="{% url edit_member member.id %}">
+        <i class="icon-edit icon-white"></i> {% trans "Edit" %}
+      </a>
+      <a class="btn btn-inverse" href="">
+        <i class="icon-barcode icon-white"></i> {% trans "Invoice" %}
+      </a>
+    </td>
   </tr>
   {% endfor %}
   </tbody>
