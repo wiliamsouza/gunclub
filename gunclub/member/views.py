@@ -1,6 +1,8 @@
 """
-Members views for gunclub 
+Members views for gunclub
 """
+
+import datetime
 
 from django.template import RequestContext
 from django.contrib.auth.models import User
@@ -24,6 +26,7 @@ def add_member(request):
         if form.is_valid():
             profile = form.save(request)
             if request.POST.get('is_member'):
+                profile.date_membership = datetime.date.today()
                 return HttpResponseRedirect(
                     reverse('edit_member',args=[profile.id]))
             return HttpResponseRedirect(

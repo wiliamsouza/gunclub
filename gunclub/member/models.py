@@ -31,6 +31,7 @@ class Profile(models.Model):
     """
     user = models.OneToOneField(User)
     is_member = models.BooleanField(_('Is member'), default=False)
+    date_membership = models.DateField(blank=True, null=True)
     job_position = models.CharField(_('Job position'), max_length=32,
                                     blank=True, null=True)
     gender = models.CharField(_('Gender'), max_length=1,
