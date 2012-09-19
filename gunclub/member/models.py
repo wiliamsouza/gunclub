@@ -64,23 +64,19 @@ class Profile(models.Model):
 
     invoice_due_day = models.IntegerField(blank=True, null=True)
 
+    street = models.CharField(_('Street'), max_length=128,
+                              blank=True, null=True)
+    street2 = models.CharField(_('Street'), max_length=128,
+                               blank=True, null=True)
+    city = models.CharField(_('City'), max_length=32, blank=True, null=True)
+    postal_code = models.CharField(_('Postal / Zip code'), max_length=9,
+                                  blank=True, null=True)
+    state_province = models.CharField(_('State / Province'), max_length=2,
+                                      choices=STATE_CHOICES, blank=True,
+                                      null=True)
     def __unicode__(self):
         return unicode(self.user.get_full_name()) #pylint: disable=E1101
 
-
-class Address(models.Model):
-    """ Member address
-    """
-    user = models.OneToOneField(User)
-    street = models.CharField(_('Street'), max_length=128)
-    street2 = models.CharField(_('Street'), max_length=128)
-    city = models.CharField(_('City'), max_length=32)
-    postal_code = models.CharField(_('Postal / Zip code'), max_length=9)
-    state_province = models.CharField(_('State / Province'), max_length=2,
-                                      choices=STATE_CHOICES)
-
-    def __unicode__(self):
-        return self.street
 
 #pylint: disable=W0613
 def create_user_profile(sender, instance, created, **kwargs):
