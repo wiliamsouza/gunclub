@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^dashboard/admin/$', admin_dashboard, name='admin_dashboard'),
     url(r'^member/add/$', add_member, name='add_member'),
     url(r'^member/edit/(?P<member_id>\d+)/$', edit_member, name='edit_member'),
+    (r'^search/', include('haystack.urls')),
 )
 urlpatterns += staticfiles_urlpatterns()

@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
     'registration',
     'django_nose',
     'pagination',
@@ -185,6 +186,12 @@ REGISTRATION_OPEN = False
 
 # User profile models
 AUTH_PROFILE_MODULE = 'member.Profile'
+
+# Whoosh and haystack configuration
+
+HAYSTACK_SITECONF = 'gunclub.search_sites'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = os.path.join(os.path.dirname(__file__), 'whoosh_index')
 
 try:
     from development_settings import *
