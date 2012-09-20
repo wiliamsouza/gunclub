@@ -39,7 +39,7 @@ class Profile(models.Model):
     relationship = models.IntegerField(_('Relationship'),
                                        choices=RELATIONSHIP_CHOICES,
                                        blank=True, null=True)
-    wife_name = models.CharField(_("Wife's name"), max_length=64,
+    spouse_name = models.CharField(_("Spouse name"), max_length=64,
                                  blank=True, null=True)
     father_name = models.CharField(_("Father's name"), max_length=64,
                                    blank=True, null=True)

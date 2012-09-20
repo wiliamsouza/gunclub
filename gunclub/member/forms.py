@@ -88,6 +88,7 @@ class EditMemberForm(forms.ModelForm):
         self.instance.user.last_name = self.cleaned_data.get('last_name')
         self.instance.user.email = self.cleaned_data.get('email')
         self.instance.user.save()
+        return self.instance
 
     class Meta:
         exclude = ['user',]
@@ -99,7 +100,7 @@ class EditMemberForm(forms.ModelForm):
             'job_position',
             'gender',
             'relationship',
-            'wife_name',
+            'spouse_name',
             'father_name',
             'mother_name',
             'date_of_birth',
@@ -111,5 +112,10 @@ class EditMemberForm(forms.ModelForm):
             'has_cr',
             'cr_valid_thru',
             'invoice_due_day',
+            'street',
+            'street2',
+            'city',
+            'postal_code',
+            'state_province'
         ]
         model = Profile
