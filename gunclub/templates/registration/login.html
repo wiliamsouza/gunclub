@@ -5,7 +5,6 @@
 <div class="login">
   <form method="post">
     <div class="modal-header">
-      <h3>{% trans "Log in" %}</h3>
     </div>
     <fieldset>
     <div class="modal-body clearfix">
@@ -17,7 +16,7 @@
     {% csrf_token %}
     </fieldset>
     <div class="modal-footer">
-      <button type="submit" value="login" class="btn btn-primary pull-right">
+      <button type="submit" value="login" class="btn btn-inverse pull-right">
       {% trans "Log in" %}
       </button>
     </div> <!-- form-actions -->
