@@ -3,8 +3,8 @@
 {% load i18n %}
 {% block brand-url %}{% url admin_dashboard %}{% endblock %}
 {% block menu %}
-<li class="active"><a href="#">Member</a></li>
-<li><a href="#">Invoice</a></li>
+<li class="active"><a href="#">{% trans "Member" %}</a></li>
+<li><a href="#">{% trans "Invoice" %}</a></li>
 {% endblock menu %}
 {% block content %}
 <div class="modal hide fade" id="addMemberForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -58,7 +58,7 @@
     <td>{{ member.last_name }}</td>
     <td>{{ member.username }}</td>
     <td>
-      <a class="btn btn-inverse" href="">
+      <a class="btn btn-inverse" href="{% url detail_member member.id %}">
         <i class="icon-list-alt icon-white"></i> {% trans "View" %}
       </a>
       <a class="btn btn-inverse" href="{% url edit_member member.id %}">
@@ -74,7 +74,7 @@
 </table>
 {% else %}
 <div class="alert alert-info">
-  <p>{% trans "There are no users here at the moment." %}</p>
+  <p>{% trans "There are no members here at the moment." %}</p>
 </div>
 {% endif %}
 {% paginate %}
