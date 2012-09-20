@@ -27,6 +27,7 @@ def add_member(request):
             profile = form.save(request)
             if request.POST.get('is_member'):
                 profile.date_membership = datetime.date.today()
+                profile.save()
                 return HttpResponseRedirect(
                     reverse('edit_member',args=[profile.id]))
             return HttpResponseRedirect(
@@ -39,14 +40,17 @@ def add_member(request):
 
 
 def edit_member(request, member_id=0):
-    member = Profile()
+    member = None
     if member_id:
         member = get_object_or_404(Profile, id=member_id)
         form = EditMemberForm(instance=member)
     if request.method == 'POST':
         form = EditMemberForm(request.POST, instance=member)
         if form.is_valid():
-            form.save()
+            profile = form.save()
+            if request.POST.get('is_member') and not profile.is_member:
+                profile.date_membership = datetime.date.today()
+                profile.save()
             return HttpResponseRedirect(
                 reverse('admin_dashboard',))
     return render_to_response(
