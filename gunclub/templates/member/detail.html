@@ -1,0 +1,119 @@
+{% extends "base_two_column.html" %}
+{% load pagination_tags %}
+{% load i18n %}
+{% block brand-url %}{% url admin_dashboard %}{% endblock %}
+{% block content %}
+<h2>{% trans "Detail" %}</h2>
+<table class="table table-bordered">
+  <tbody>
+  <tr>
+    <td>{% trans "Frist name" %}</td>
+    <td>{{ member.user.first_name }}</td>
+  </tr>
+  <tr>
+    <td>{% trans "Last name" %}</td>
+    <td>{{ member.user.last_name }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Username" %}</td>
+    <td>{{ member.user.username }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "E-mail" %}</td>
+    <td>{{ member.user.email }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Is member" %}</td>
+    {% if member.is_member %}
+    <td><i class="icon-thumbs-up"></td>
+    {% else %}
+    <td><i class="icon-thumbs-down"></td>
+    {% endif %}
+  </tr>
+    <tr>
+    <td>{% trans "Date membership" %}</td>
+    <td>{{ member.date_membership }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Job position" %}</td>
+    <td>{{ member.job_position }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Gender" %}</td>
+    <td>{{ member.gender }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Relationship" %}</td>
+    <td>{{ member.relationship }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Spouse name" %}</td>
+    <td>{{ member.spouse_name }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Father's name" %}</td>
+    <td>{{ member.father_name }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Mother's name" %}</td>
+    <td>{{ member.mother_name }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Date of birth" %}</td>
+    <td>{{ member.date_of_birth}}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Place of birth" %}</td>
+    <td>{{ member.place_of_birth }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "CPF" %}</td>
+    <td>{{ member.cpf }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "RG" %}</td>
+    <td>{{ member.rg }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Issuing institution" %}</td>
+    <td>{{ member.rg_issuing_institution }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Date of issue" %}</td>
+    <td>{{ member.rg_date_of_issue}}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Has CR" %}</td>
+    <td>{{ member.has_CR }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "CR valid thru" %}</td>
+    <td>{{ member.cr_valid_thru  }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Invoice due day" %}</td>
+    <td>{{ member.invoice_due_day }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Street" %}</td>
+    <td>{{ member.street }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Street" %}</td>
+    <td>{{ member.street2 }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "City" %}</td>
+    <td>{{ member.city }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "Postal / Zip code" %}</td>
+    <td>{{ member.postal_code }}</td>
+  </tr>
+    <tr>
+    <td>{% trans "State / Province" %}</td>
+    <td>{{ member.state_province }}</td>
+  </tr>
+  </tbody>
+</table>
+{% endblock content %}
