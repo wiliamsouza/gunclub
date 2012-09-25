@@ -18,9 +18,9 @@ from member.models import Profile
 
 @login_required
 def add_member(request):
-    form = AddMemberForm()
     if not request.user.is_staff:
         return HttpResponseForbidden()
+    form = AddMemberForm()
     if request.method == 'POST':
         form = AddMemberForm(request.POST)
         if form.is_valid():
@@ -39,7 +39,10 @@ def add_member(request):
         )
 
 
+@login_required
 def edit_member(request, member_id=0):
+    if not request.user.is_staff:
+        return HttpResponseForbidden()
     member = None
     if member_id:
         member = get_object_or_404(Profile, id=member_id)
