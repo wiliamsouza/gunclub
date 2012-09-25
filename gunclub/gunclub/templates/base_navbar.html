@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block page %}
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{% url home %}">Gunclub</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="{% url home %}">{% trans "Member" %}</a></li>
+              <li><a href="#invoice">{% trans "Invoice" %}</a></li>
+              <li><a href="#help">{% trans "Help" %}</a></li>
+            </ul>
+
+              {% if user.is_authenticated %}
+                <p class="navbar-text pull-right">
+                  {% trans "Logged in as" %} {{ user.username }} / 
+                  <a href="/accounts/password/change/" class="navbar-link">
+                  {% trans "change password" %}</a> / 
+                  <a href="/accounts/logout/" class="navbar-link">
+                  {% trans "logout" %}</a>
+                </p>
+              {% endif %}
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+<div class="content">
+	<div class="container">
+	{% block content %}{% endblock%}
+	</div> <!-- content -->
+</div> <!-- container -->
+{% endblock page %}
