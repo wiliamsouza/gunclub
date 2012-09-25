@@ -1,12 +1,9 @@
-{% extends "base_two_column.html" %}
+{% extends "base_navbar.html" %}
 {% load pagination_tags %}
 {% load i18n %}
 {% block brand-url %}{% url admin_dashboard %}{% endblock %}
-{% block menu %}
-<li class="active"><a href="#">{% trans "Member" %}</a></li>
-<li><a href="#">{% trans "Invoice" %}</a></li>
-{% endblock menu %}
 {% block content %}
+<h2>{% trans "Admin dashboard" %}</h2>
 <div class="modal hide fade" id="addMemberForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal"
@@ -59,12 +56,12 @@
     <td>{{ member.username }}</td>
     <td>
       <a class="btn btn-inverse" href="{% url detail_member member.id %}">
-        <i class="icon-list-alt icon-white"></i> {% trans "View" %}
+        <i class="icon-list-alt icon-white"></i> {% trans "Detail" %}
       </a>
       <a class="btn btn-inverse" href="{% url edit_member member.id %}">
         <i class="icon-edit icon-white"></i> {% trans "Edit" %}
       </a>
-      <a class="btn btn-inverse" href="">
+      <a class="btn btn-inverse" href="{% url member_invoice member.id %}">
         <i class="icon-barcode icon-white"></i> {% trans "Invoice" %}
       </a>
     </td>

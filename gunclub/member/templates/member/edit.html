@@ -1,14 +1,14 @@
-{% extends "base_two_column.html" %}
+{% extends "base_navbar.html" %}
 {% load i18n %}
 {% block content %}
 <div>
   <div class="modal-header">
-    <h3>{% trans "Edit member" %}</h3>
+    <h2>{% trans "Edit member" %}</h2>
   </div> <!-- modal-header -->
   <form class="form-horizontal" method="post" action="{% url edit_member member_id %}">{% csrf_token %}
     <fieldset>
       <div class="modal-body">
-        {% include "_form_body_horizontal.html" %}
+        {% include "_form_body.html" %}
       </div> <!-- modal-body -->
     <fieldset>
     <div class="modal-footer">
