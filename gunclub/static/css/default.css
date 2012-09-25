@@ -1,50 +1,3 @@
-body {
-  color: #444444;
-  font-size: 13px;
-  font-family: "Lucida Grande", Tahoma, Arial, sans-serif;
-}
-
-a {
-  color: #306d9c;
-  text-decoration: none;
-}
-
-textarea {
-  color: #444444;
-  font-size: 13px;
-  font-family: "Lucida Grande", Tahoma, Arial, sans-serif;
-}
-
-form li {
-  padding: 5px 0 5px 0;
-}
-
-form label {
-  display: block;
-  padding: 0 0 5px;
-  font-weight: bold;
-}
-
-table {
-  width: 100%;
-}
-
-td, th {
-  padding: 5px;
-  max-width: 500px;
-  border-bottom: 1px solid #ddd;
-  font-family: "Lucida Grande", Tahoma, Arial, sans-serif;
-}
-
-th {
-  text-align: left;
-  font-weight: bold;
-}
-
-img {
-  border: none;
-}
-
 .login {
   width: 350px;
   margin-top: 70px;
@@ -74,18 +27,8 @@ img {
   margin: 0 0 0 0;
 }
 
-.sidebar {
-  /**background-color: #bbd8e9;**/
-  padding-top: 10px;
-}
-
 .content {
-  /**background-color: #dceaf4;**/
-  padding-top: 10px;
-}
-
-.controls {
-  padding-bottom: 20px;
+  padding-top: 60px;
 }
 
 .pagination {
