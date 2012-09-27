@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Logout" %}{% endblock %}
+{% block page %}
+<div class="alert alert-info">
+  <h2>{% trans "Logged out" %}</h2>
+  <p>
+  	{% trans "You've been logged out!" %}
+  	<a href="/accounts/login/">{% trans "login again" %}</a>
+  </p>
+</div>
+{% endblock %}
