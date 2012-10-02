@@ -22,12 +22,12 @@
       <button class="btn" data-dismiss="modal" aria-hidden="true">
       Close
       </button>
-      <input type="submit" class="btn btn-primary" value="{% trans "Add member" %}">
+      <input type="submit" class="btn btn-primary" name="add_member" value="{% trans "Add member" %}">
     </div> <!-- modal-footer -->
   </form>
 </div>
 <div class="controls pull-right">
-  <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addMemberForm">
+  <button class="btn btn-primary" type="button" name="new_member" data-toggle="modal" data-target="#addMemberForm">
     <i class="icon-plus icon-white"></i> {% trans "New member" %}
   </button>
 </div> <!-- controls pull-right -->
@@ -50,7 +50,7 @@
   </thead>
   <tbody>
   {% for member in members %}
-  <tr class="{% cycle 'row1' 'row2' %}">
+  <tr>
     <td>{{ member.first_name }}</td>
     <td>{{ member.last_name }}</td>
     <td>{{ member.username }}</td>
@@ -61,9 +61,11 @@
       <a class="btn btn-inverse" href="{% url edit_member member.id %}">
         <i class="icon-edit icon-white"></i> {% trans "Edit" %}
       </a>
+      {% if member.profile.is_member %}
       <a class="btn btn-inverse" href="{% url member_invoice member.id %}">
         <i class="icon-barcode icon-white"></i> {% trans "Invoice" %}
       </a>
+      {% endif %}
     </td>
   </tr>
   {% endfor %}
