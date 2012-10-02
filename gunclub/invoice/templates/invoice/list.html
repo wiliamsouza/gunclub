@@ -1,5 +1,52 @@
 {% extends "base_navbar.html" %}
+{% load pagination_tags %}
 {% load i18n %}
 {% block content %}
 <h2>{% trans "Invoices" %}</h2>
+
+<h3>
+{% if member.user.get_full_name %}
+{{ member.user.get_full_name }}
+{% else %}
+{{ member.user.username }}
+{% endif %}
+. Member since {{ member.date_membership }}
+</h3>
+{% if invoices %}
+{% autopaginate invoices %}
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>{% trans "Due date" %}</th>
+      <th>{% trans "Value" %}</th>
+      <th>{% trans "Status" %}</th>
+      <th>{% trans "Payment date" %}</th>
+      <th>{% trans "Actions" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for invoice in invoices %}
+  <tr>
+    <td>{{ invoice.due_date }}</td>
+    <td>{{ invoice.value }}</td>
+    <td>{{ invoice.is_paid }}</td>
+    <td>{{ invoice.payment_date }}</td>
+    <td>
+      <a class="btn btn-inverse" href="{% url print_invoice invoice.id %}">
+        <i class="icon-print icon-white"></i> {% trans "Print" %}
+      </a>
+      <a class="btn btn-inverse" href="{% url send_invoice invoice.id %}">
+        <i class="icon-envelope icon-white"></i> {% trans "Send by email" %}
+      </a>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+  <p>{% trans "There are no members here at the moment." %}</p>
+</div>
+{% endif %}
+{% paginate %}
 {% endblock content %}

@@ -51,7 +51,7 @@ def edit_member(request, member_id=0):
         form = EditMemberForm(request.POST, instance=member)
         if form.is_valid():
             profile = form.save()
-            if request.POST.get('is_member') and not profile.is_member:
+            if request.POST.get('is_member') and not member.date_membership:
                 profile.date_membership = datetime.date.today()
                 profile.save()
             return HttpResponseRedirect(
@@ -62,3 +62,17 @@ def edit_member(request, member_id=0):
      'member_id': member_id},
     context_instance=RequestContext(request)
     )
+
+
+@login_required
+def upgrade_to_member(request, member_id=0):
+    if not request.user.is_staff:
+        return HttpResponseForbidden()
+    member = None
+    if member_id:
+        member = get_object_or_404(Profile, id=member_id)
+        member.date_membership = datetime.date.today()
+        member.is_member = True
+        member.save()
+        return HttpResponseRedirect(
+            reverse('admin_dashboard',))

@@ -192,10 +192,21 @@ REGISTRATION_OPEN = False
 AUTH_PROFILE_MODULE = 'member.Profile'
 
 # Whoosh and haystack configuration
-
 HAYSTACK_SITECONF = 'gunclub.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_WHOOSH_PATH = os.path.join(os.path.dirname(__file__), 'whoosh_index')
+
+# Club invoice configuration
+CLUB_NAME = ''
+CLUB_CNPJ = ''
+CLUB_ADDRESS = ''
+CLUB_BANK_PORTFOLIO = ''
+CLUB_BANK_AGENCY = ''
+CLUB_BANK_ACCOUNT = ''
+CLUB_BANK_OUR_NUMBER = ''
+CLUB_CASHIER_INSTRUCTIONS = [
+    '',
+    ]
 
 try:
     from development_settings import *

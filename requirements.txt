@@ -3,3 +3,4 @@ django-registration
 git+https://github.com/wiliamsouza/django-pagination.git#egg=pagination
 django-haystack
 whoosh
+pyboleto
