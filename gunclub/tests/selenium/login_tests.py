@@ -14,8 +14,8 @@ class LoginTest(LiveServerTestCase):
 
     @classmethod
     def tearDownClass(cls):
-        super(LoginTest, cls).tearDownClass()
         cls.selenium.quit()
+        super(LoginTest, cls).tearDownClass()
 
     def test_login_admin(self):
         """ Test admin login
@@ -31,7 +31,7 @@ class LoginTest(LiveServerTestCase):
         self.selenium.find_element_by_xpath('//button[@value="login"]').click()
         WebDriverWait(self.selenium, 10).until(
             lambda driver: \
-            driver.find_element_by_xpath('//a[@href="/dashboard/admin/"]')
+            driver.find_element_by_xpath('//h2[text()="Admin dashboard"]')
         )
 
     def test_login_user(self):
@@ -48,5 +48,5 @@ class LoginTest(LiveServerTestCase):
         self.selenium.find_element_by_xpath('//button[@value="login"]').click()
         WebDriverWait(self.selenium, 10).until(
             lambda driver: \
-            driver.find_element_by_xpath('//a[@href="/dashboard/user/"]')
+            driver.find_element_by_xpath('//h2[text()="User dashboard"]')
         )
