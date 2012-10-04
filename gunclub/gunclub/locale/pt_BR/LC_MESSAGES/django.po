@@ -1,74 +1,90 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# Translators:
+#   <wiliamsouza83@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: gunclub\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-22 13:52-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2012-10-03 22:30-0300\n"
+"PO-Revision-Date: 2012-10-04 01:48+0000\n"
+"Last-Translator: wiliam <wiliamsouza83@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/gunclub/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: templates/403.html:3
 msgid "Access denied"
-msgstr ""
+msgstr "Acesso negado"
 
 #: templates/403.html:6
 msgid "Access to the webpage was denied"
-msgstr ""
+msgstr "O acesso à página da web foi negado"
 
 #: templates/500.html:3 templates/500.html.py:6
 msgid "Internal server error"
-msgstr ""
+msgstr "Erro interno no servidor"
 
 #: templates/500.html:8
 msgid ""
-"An unexpected error occurred while processing your request.  Please try your "
-"request again or contact the administrator."
-msgstr ""
+"An unexpected error occurred while processing your request.  Please try your"
+" request again or contact the administrator."
+msgstr "Ocorreu um erro inesperado ao processar seu pedido. Por favor, tente novamente ou contate o administrador."
 
 #: templates/base_navbar.html:15
 msgid "Member"
-msgstr ""
+msgstr "Associado"
 
 #: templates/base_navbar.html:16
 msgid "Invoice"
-msgstr ""
+msgstr "Boleto"
 
 #: templates/base_navbar.html:17
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 #: templates/base_navbar.html:22 templates/base_two_column.html:23
 msgid "Logged in as"
-msgstr ""
+msgstr "Conectado como"
 
 #: templates/base_navbar.html:24 templates/base_two_column.html:25
 msgid "change password"
-msgstr ""
+msgstr "alterar a senha"
 
 #: templates/base_navbar.html:26 templates/base_two_column.html:27
 msgid "logout"
-msgstr ""
+msgstr "sair"
 
 #: templates/registration/login.html:19
 msgid "Log in"
-msgstr ""
+msgstr "Entrar"
+
+#: templates/registration/logout.html:3
+msgid "Logout"
+msgstr "Sair"
+
+#: templates/registration/logout.html:6
+msgid "Logged out"
+msgstr "Sessão encerrada"
+
+#: templates/registration/logout.html:8
+msgid "You've been logged out!"
+msgstr "Sua sessão foi encerrada!"
+
+#: templates/registration/logout.html:9
+msgid "login again"
+msgstr "entrar novamente"
 
 #: templates/registration/registration_closed.html:3
 #: templates/registration/registration_closed.html:6
 msgid "Registration disabled"
-msgstr ""
+msgstr "Registo desativado"
 
 #: templates/registration/registration_closed.html:7
 msgid "Self registration is disabled. Please contact the administrator."
-msgstr ""
+msgstr "Auto-registro está desativado. Por favor, contate o administrador."

@@ -30,7 +30,7 @@ def generate_invoice_pdf(due_date, value, user, profile):
     d.numero_documento = d.nosso_numero
     d.instrucoes = settings.CLUB_CASHIER_INSTRUCTIONS
     d.demonstrativo = [
-        _('MONTHLY FEE FOR MONTH %s/%s') % (due_date.month, due_date.year),
+        _('MONTHLY FEE FOR MONTH %(month)s/%(year)s') % (due_date.month, due_date.year),
     ]
     d.sacado = [
         "%s %s" % (user.first_name, user.last_name),

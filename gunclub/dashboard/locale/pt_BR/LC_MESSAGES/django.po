@@ -1,71 +1,71 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# Translators:
+#   <wiliamsouza83@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: gunclub\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-22 13:52-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2012-10-03 22:29-0300\n"
+"PO-Revision-Date: 2012-10-04 01:40+0000\n"
+"Last-Translator: wiliam <wiliamsouza83@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/gunclub/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: views.py:28 templates/dashboard/user.html:5
 msgid "User dashboard"
-msgstr ""
+msgstr "Painel usuário"
 
 #: views.py:43 templates/dashboard/admin.html:6
 msgid "Admin dashboard"
-msgstr ""
+msgstr "Painel administrador"
 
 #: templates/dashboard/admin.html:13 templates/dashboard/admin.html.py:25
 msgid "Add member"
-msgstr ""
+msgstr "Adicionar associado"
 
 #: templates/dashboard/admin.html:31
 msgid "New member"
-msgstr ""
+msgstr "Novo associado"
 
 #: templates/dashboard/admin.html:37
 msgid "Search"
-msgstr ""
+msgstr "Pesquisar"
 
 #: templates/dashboard/admin.html:45
 msgid "First name"
-msgstr ""
+msgstr "Primeiro nome"
 
 #: templates/dashboard/admin.html:46
 msgid "Last name"
-msgstr ""
+msgstr "Sobrenome"
 
 #: templates/dashboard/admin.html:47
 msgid "Username"
-msgstr ""
+msgstr "Usuário"
 
 #: templates/dashboard/admin.html:48
 msgid "Actions"
-msgstr ""
+msgstr "Ações"
 
 #: templates/dashboard/admin.html:59
 msgid "Detail"
-msgstr ""
+msgstr "Detalhar"
 
 #: templates/dashboard/admin.html:62
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
-#: templates/dashboard/admin.html:65
+#: templates/dashboard/admin.html:66
 msgid "Invoice"
-msgstr ""
+msgstr "Boleto"
 
-#: templates/dashboard/admin.html:74
+#: templates/dashboard/admin.html:76
 msgid "There are no members here at the moment."
-msgstr ""
+msgstr "Não há membros aqui no momento."

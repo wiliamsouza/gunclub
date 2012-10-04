@@ -1,180 +1,180 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# Translators:
+#   <wiliamsouza83@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: gunclub\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-22 13:52-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2012-10-03 22:30-0300\n"
+"PO-Revision-Date: 2012-10-04 02:06+0000\n"
+"Last-Translator: wiliam <wiliamsouza83@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/gunclub/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: forms.py:17 templates/member/detail.html:18
 msgid "Username"
-msgstr ""
+msgstr "Usuário"
 
 #: forms.py:18
 msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
-msgstr ""
+msgstr "Este valor deve conter apenas letras, números e estes caractres @ . _ - _."
 
 #: forms.py:20 forms.py:77 templates/member/detail.html:22
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 #: forms.py:21 forms.py:75
 msgid "first name"
-msgstr ""
+msgstr "Primeiro nome"
 
 #: forms.py:22 forms.py:76
 msgid "last name"
-msgstr ""
+msgstr "Sobrenome"
 
 #: forms.py:53
 msgid "A user with that username already exists."
-msgstr ""
+msgstr "Um usuário com este nome de usuário já existe"
 
 #: models.py:13
 msgid "Male"
-msgstr ""
+msgstr "Masculino"
 
 #: models.py:14
 msgid "Female"
-msgstr ""
+msgstr "Feminino"
 
 #: models.py:18
 msgid "Single"
-msgstr ""
+msgstr "Solteiro"
 
 #: models.py:19
 msgid "Married"
-msgstr ""
+msgstr "Casado"
 
 #: models.py:20
 msgid "Widower"
-msgstr ""
+msgstr "Viúvo"
 
 #: models.py:21
 msgid "Separeted"
-msgstr ""
+msgstr "Separado"
 
 #: models.py:22
 msgid "Legally Separeted"
-msgstr ""
+msgstr "Legalmente separado"
 
 #: models.py:23
 msgid "Divorced"
-msgstr ""
+msgstr "Divociado"
 
 #: models.py:33 templates/member/detail.html:26
 msgid "Is member"
-msgstr ""
+msgstr "É associado"
 
 #: models.py:35 templates/member/detail.html:38
 msgid "Job position"
-msgstr ""
+msgstr "Cargo"
 
 #: models.py:37 templates/member/detail.html:42
 msgid "Gender"
-msgstr ""
+msgstr "Sexo"
 
 #: models.py:39 templates/member/detail.html:46
 msgid "Relationship"
-msgstr ""
+msgstr "Estado civil"
 
 #: models.py:42 templates/member/detail.html:50
 msgid "Spouse name"
-msgstr ""
+msgstr "Esposa / Esposo"
 
 #: models.py:44 templates/member/detail.html:54
 msgid "Father's name"
-msgstr ""
+msgstr "Nome do pai"
 
 #: models.py:46 templates/member/detail.html:58
 msgid "Mother's name"
-msgstr ""
+msgstr "Nome da mãe"
 
 #: models.py:49 templates/member/detail.html:62
 msgid "Date of birth"
-msgstr ""
+msgstr "Data de nascimento"
 
 #: models.py:50 templates/member/detail.html:66
 msgid "Place of birth"
-msgstr ""
+msgstr "Local de nascimento"
 
 #: models.py:54 templates/member/detail.html:70
 msgid "CPF"
-msgstr ""
+msgstr "CPF"
 
 #: models.py:55 templates/member/detail.html:74
 msgid "RG"
-msgstr ""
+msgstr "RG"
 
 #: models.py:56 templates/member/detail.html:78
 msgid "Issuing institution"
-msgstr ""
+msgstr "Instituição emisora"
 
 #: models.py:59 templates/member/detail.html:82
 msgid "Date of issue"
-msgstr ""
+msgstr "Data de emisão"
 
 #: models.py:62 templates/member/detail.html:86
 msgid "Has CR"
-msgstr ""
+msgstr "Tem CR"
 
 #: models.py:63 templates/member/detail.html:90
 msgid "CR valid thru"
-msgstr ""
+msgstr "Validade do CR"
 
 #: models.py:67 models.py:69 templates/member/detail.html:98
 #: templates/member/detail.html.py:102
 msgid "Street"
-msgstr ""
+msgstr "Rua"
 
 #: models.py:71 templates/member/detail.html:106
 msgid "City"
-msgstr ""
+msgstr "Cidade"
 
 #: models.py:72 templates/member/detail.html:110
 msgid "Postal / Zip code"
-msgstr ""
+msgstr "CEP"
 
 #: models.py:74 templates/member/detail.html:114
 msgid "State / Province"
-msgstr ""
+msgstr "Estado"
 
 #: templates/member/detail.html:6
 msgid "Detail"
-msgstr ""
+msgstr "Detalhar"
 
 #: templates/member/detail.html:10
 msgid "Frist name"
-msgstr ""
+msgstr "Primeiro nome"
 
 #: templates/member/detail.html:14
 msgid "Last name"
-msgstr ""
+msgstr "Sobrenome"
 
 #: templates/member/detail.html:34
 msgid "Date membership"
-msgstr ""
+msgstr "Data de filiação"
 
 #: templates/member/detail.html:94
 msgid "Invoice due day"
-msgstr ""
+msgstr "Dia vencimento boleto"
 
 #: templates/member/edit.html:6
 msgid "Edit member"
-msgstr ""
+msgstr "Editar associado"
 
 #: templates/member/edit.html:15
-msgid "Add member"
-msgstr ""
+msgid "Save"
+msgstr "Salvar"
