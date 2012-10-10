@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Translators:
 #   <wiliamsouza83@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gunclub\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-03 22:32-0300\n"
-"PO-Revision-Date: 2012-10-04 01:54+0000\n"
+"POT-Creation-Date: 2012-10-09 23:31-0300\n"
+"PO-Revision-Date: 2012-10-10 02:43+0000\n"
 "Last-Translator: wiliam <wiliamsouza83@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/gunclub/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +23,14 @@ msgstr ""
 #, python-format
 msgid "MONTHLY FEE FOR MONTH %(month)s/%(year)s"
 msgstr "MENSALIDADE REFERENTE AO MÊS %(month)s/%(year)s"
+
+#: templates/invoice/email.html:5
+msgid "E-mail"
+msgstr "E-mail"
+
+#: templates/invoice/email.html:7
+msgid "The e-mail has been sent!"
+msgstr "O e-mail foi enviado!"
 
 #: templates/invoice/list.html:5
 msgid "Invoices"
