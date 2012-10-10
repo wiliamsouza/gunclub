@@ -208,6 +208,17 @@ CLUB_CASHIER_INSTRUCTIONS = [
     '',
     ]
 
+# Email configuration
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_FROM = 'gunclub@example.org'
+EMAIL_SUBJECT = 'Gunclub invoice'
+EMAIL_BODY = """
+
+"""
+
 try:
     from development_settings import *
 except ImportError, e:
