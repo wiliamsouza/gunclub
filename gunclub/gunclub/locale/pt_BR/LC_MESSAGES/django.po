@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Translators:
 #   <wiliamsouza83@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gunclub\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-03 22:30-0300\n"
-"PO-Revision-Date: 2012-10-04 01:48+0000\n"
+"POT-Creation-Date: 2012-10-09 23:26-0300\n"
+"PO-Revision-Date: 2012-10-10 02:44+0000\n"
 "Last-Translator: wiliam <wiliamsouza83@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/gunclub/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -88,3 +89,23 @@ msgstr "Registo desativado"
 #: templates/registration/registration_closed.html:7
 msgid "Self registration is disabled. Please contact the administrator."
 msgstr "Auto-registro está desativado. Por favor, contate o administrador."
+
+#: templates/search/search.html:4 templates/search/search.html.py:11
+msgid "Search"
+msgstr "Pesquisa"
+
+#: templates/search/search.html:16
+msgid "Results"
+msgstr "Resultados"
+
+#: templates/search/search.html:23
+msgid "No results found."
+msgstr "Nenhum resultado encontrado."
+
+#: templates/search/search.html:28
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/search/search.html:30
+msgid "Next"
+msgstr "Próximo"
