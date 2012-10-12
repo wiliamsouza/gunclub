@@ -8,7 +8,8 @@ from dashboard.views import home, user_dashboard, admin_dashboard
 from member.views import add_member, edit_member
 from member.models import Profile
 
-from invoice.views import member_invoice, print_invoice, send_invoice
+from invoice.views import (invoice, member_invoice, edit_invoice, print_invoice,
+                           print_invoice_booklet, send_invoice)
 
 urlpatterns = patterns('',
     url(r'^accounts/', include('registration.backends.default.urls')),
@@ -27,8 +28,20 @@ urlpatterns = patterns('',
             template_name='member/detail.html'),
         name='detail_member'),
 
+    url(r'^invoice/$',
+        invoice, name='invoice'),
+
     url(r'^invoice/(?P<member_id>\d+)/$',
         member_invoice, name='member_invoice'),
+
+    url(r'^invoice/print/booklet/(?P<member_id>\d+)/$',
+        print_invoice_booklet, name='print_invoice_booklet'),
+
+    url(r'^invoice/edit/(?P<invoice_id>\d+)/$',
+        edit_invoice, name='edit_invoice'),
+
+    url(r'^invoice/print/(?P<invoice_id>\d+)/$',
+        print_invoice, name='print_invoice'),
 
     url(r'^invoice/print/(?P<invoice_id>\d+)/$',
         print_invoice, name='print_invoice'),

@@ -1,0 +1,19 @@
+{% extends "base_navbar.html" %}
+{% load i18n %}
+{% block content %}
+<div>
+  <div class="modal-header">
+    <h2>{% trans "Edit invoice" %}</h2>
+  </div> <!-- modal-header -->
+  <form class="form-horizontal" method="post" action="{% url edit_invoice invoice_id %}">{% csrf_token %}
+    <fieldset>
+      <div class="modal-body">
+        {% include "_form_body.html" %}
+      </div> <!-- modal-body -->
+    <fieldset>
+    <div class="modal-footer">
+      <input type="submit" class="btn btn-primary" value="{% trans "Save" %}">
+    </div> <!-- modal-footer -->
+  </form>
+</div>
+{% endblock content %}

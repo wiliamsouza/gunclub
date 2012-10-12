@@ -1,0 +1,10 @@
+{% extends "base_navbar.html" %}
+{% load i18n %}
+{% block brand-url %}{% url user_dashboard %}{% endblock %}
+{% block content %}
+<h2>{% trans "Invoices" %}</h2>
+
+<p>{% trans "Open invoices:" %} {{ open_invoices }}</p>
+<p>{% trans "Paid invoices:" %} {{ paid_invoices }}</p>
+
+{% endblock content %}

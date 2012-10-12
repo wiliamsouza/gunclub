@@ -3,7 +3,11 @@
 {% load i18n %}
 {% block content %}
 <h2>{% trans "Invoices" %}</h2>
-
+<div class="controls pull-right">
+  <a class="btn btn-primary" href="{% url print_invoice_booklet member.id %}">
+    <i class="icon-print icon-white"></i> {% trans "Print in booklet" %}
+  </a>
+</div> <!-- controls pull-right -->
 <h3>
 {% if member.user.get_full_name %}
 {{ member.user.get_full_name }}
@@ -35,9 +39,14 @@
       <a class="btn btn-inverse" href="{% url print_invoice invoice.id %}">
         <i class="icon-print icon-white"></i> {% trans "Print" %}
       </a>
+      <a class="btn btn-inverse" href="{% url edit_invoice invoice.id %}">
+        <i class="icon-edit icon-white"></i> {% trans "Edit" %}
+      </a>
+      {% if member.user.email %}
       <a class="btn btn-inverse" href="{% url send_invoice invoice.id %}">
         <i class="icon-envelope icon-white"></i> {% trans "Send by email" %}
       </a>
+      {% endif %}
     </td>
   </tr>
   {% endfor %}
