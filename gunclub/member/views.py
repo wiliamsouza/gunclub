@@ -29,7 +29,7 @@ def add_member(request):
                 profile.date_membership = datetime.date.today()
                 profile.save()
                 return HttpResponseRedirect(
-                    reverse('edit_member',args=[profile.id]))
+                    reverse('edit_member', kwargs={'member_id': profile.id}))
             return HttpResponseRedirect(
                 reverse('admin_dashboard',))
     return render_to_response(

@@ -8,16 +8,18 @@ from django.contrib.sites.models import get_current_site
 from django.utils.translation import ugettext_lazy as _
 from registration.models import RegistrationProfile
 
+from gunclub import settings
 from member.models import Profile
 
 
 class AddMemberForm(forms.ModelForm):
+    ##member_id = forms.IntegerField(label=_('Member ID'))
     username = forms.RegexField(regex=r'^[\w.@+-]+$',
                                 max_length=30,
                                 label=_("Username"),
                                 error_messages={'invalid': _("This value may "
                   "contain only letters, numbers and @/./+/-/_ characters.")})
-    email = forms.EmailField(max_length=75, label=_("E-mail"))
+    email = forms.EmailField(max_length=75, label=_("E-mail"), required=False)
     first_name = forms.CharField(max_length=30, label=_('first name'))
     last_name = forms.CharField(max_length=30, label=_('last name'))
 
@@ -27,8 +29,9 @@ class AddMemberForm(forms.ModelForm):
             email=self.cleaned_data['email'],
             password='$up3rS3cr3t',
             site=get_current_site(request),
-            send_email=True,
+            send_email=settings.SEND_REGISTRATION_EMAIL,
         )
+        ##user.pk = self.cleaned_data.get('member_id')
         user.first_name = self.cleaned_data.get('first_name')
         user.last_name = self.cleaned_data.get('last_name')
         user.save()
@@ -37,7 +40,10 @@ class AddMemberForm(forms.ModelForm):
         profile.cpf = self.cleaned_data.get('cpf')
         profile.date_of_birth = self.cleaned_data.get('date_of_birth')
         profile.job_position = self.cleaned_data.get('job_position')
-        profile.is_member = self.cleaned_data.get('is_member') 
+        profile.is_member = self.cleaned_data.get('is_member')
+        profile.phone_home = self.cleaned_data.get('phone_home')
+        profile.phone_mobile = self.cleaned_data.get('phone_mobile')
+        profile.phone_work= self.cleaned_data.get('phone_work')
         profile.save()
         return profile
 
@@ -67,6 +73,9 @@ class AddMemberForm(forms.ModelForm):
             'date_of_birth',
             'job_position',
             'is_member',
+            'phone_home',
+            'phone_mobile',
+            'phone_work',
         ]
         model = Profile
 
@@ -74,7 +83,7 @@ class AddMemberForm(forms.ModelForm):
 class EditMemberForm(forms.ModelForm):
     first_name = forms.CharField(max_length=30, label=_('first name'))
     last_name = forms.CharField(max_length=30, label=_('last name'))
-    email = forms.EmailField(max_length=75, label=_("E-mail"))
+    email = forms.EmailField(max_length=75, label=_("E-mail"), required=False)
 
     def __init__(self, *args, **kwargs):
         super(EditMemberForm, self).__init__(*args, **kwargs)
@@ -116,6 +125,9 @@ class EditMemberForm(forms.ModelForm):
             'street2',
             'city',
             'postal_code',
-            'state_province'
+            'state_province',
+            'phone_home',
+            'phone_mobile',
+            'phone_work',
         ]
         model = Profile

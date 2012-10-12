@@ -74,6 +74,13 @@ class Profile(models.Model):
     state_province = models.CharField(_('State / Province'), max_length=2,
                                       choices=STATE_CHOICES, blank=True,
                                       null=True)
+    phone_home = models.CharField(_('Phone home'), max_length=11,
+                                  blank=True, null=True)
+    phone_mobile = models.CharField(_('Phone mobile'), max_length=11,
+                                    blank=True, null=True)
+    phone_work = models.CharField(_('Phone work'), max_length=11,
+                                  blank=True, null=True)
+
     def __unicode__(self):
         return unicode(self.user.get_full_name()) #pylint: disable=E1101
 
