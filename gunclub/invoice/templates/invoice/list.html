@@ -10,11 +10,11 @@
 </div> <!-- controls pull-right -->
 <h3>
 {% if member.user.get_full_name %}
-{{ member.user.get_full_name }}
+{{ member.user.get_full_name }}.
 {% else %}
-{{ member.user.username }}
+{{ member.user.username }}.
 {% endif %}
-. Member since {{ member.date_membership }}
+{% trans "Member since" %} {{ member.date_membership }}
 </h3>
 {% if invoices %}
 {% autopaginate invoices %}
