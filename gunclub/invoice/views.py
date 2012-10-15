@@ -40,22 +40,22 @@ def member_invoice(request, member_id):
     if not request.user.is_staff:
         return HttpResponseForbidden()
     member = get_object_or_404(Profile, id=member_id)
-    invoices = []
     year = datetime.date.today().year
     membership = member.date_membership.month
     for month in range(membership, 13):
         due_date = datetime.date(year, month, member.invoice_due_day)
-        invoice, created = Invoice.objects.get_or_create(
-            user=member.user,
-            due_date=due_date,
-            value=settings.INVOICE_VALUE)
-        invoices.append(invoice)
-    return render_to_response(
-        'invoice/list.html',
-        {'invoices': invoices,
-         'member': member},
-        context_instance=RequestContext(request)
-    )
+        try:
+            invoice = Invoice.objects.get(user=member.user,
+                                          due_date=due_date)
+        except Invoice.DoesNotExist:
+            invoice = Invoice.objects.create(user=member.user,
+                                             due_date=due_date,
+                                             value=settings.INVOICE_VALUE)
+    invoices = Invoice.objects.filter(user=member.user).order_by('due_date')
+    return render_to_response('invoice/list.html',
+                              {'invoices': invoices,
+                               'member': member},
+                              context_instance=RequestContext(request))
 
 
 @login_required
