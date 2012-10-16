@@ -84,12 +84,12 @@ def print_invoice_booklet(request, member_id):
     if not request.user.is_staff:
         return HttpResponseForbidden()
     profile = Profile.objects.get(pk=member_id)
-    invoices = Invoice.objects.filter(is_paid=False, user=profile.user)
-    user = profile.user
-    pdf_file = pdf.generate_invoice_booklet_pdf(invoices, user, profile)
+    invoices = Invoice.objects.filter(is_paid=False,
+                                      user=profile.user).order_by('due_date')
+    pdf_file = pdf.generate_invoice_booklet_pdf(invoices, profile.user, profile)
     response = HttpResponse(mimetype='application/pdf')
     response['Content-Disposition'] = 'attachment; filename=%s.pdf' % (
-        user.get_full_name())
+        profile.user.get_full_name())
     response.write(pdf_file)
     return response
 
@@ -100,9 +100,8 @@ def print_invoice(request, invoice_id):
         return HttpResponseForbidden()
     invoice = get_object_or_404(Invoice, id=invoice_id)
     profile = invoice.user.profile
-    user = invoice.user
     pdf_file = pdf.generate_invoice_pdf(invoice.due_date, invoice.value,
-                                        user, profile)
+                                        invoice.user, profile)
     response = HttpResponse(mimetype='application/pdf')
     response['Content-Disposition'] = 'attachment; filename=%s_%s.pdf' % (
         user.get_full_name(), invoice.due_date)
