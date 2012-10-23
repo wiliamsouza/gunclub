@@ -2,7 +2,7 @@ from haystack import site
 from haystack.indexes import *
 from member.models import Profile
 
-class ProfileIndex(SearchIndex):
+class ProfileIndex(RealTimeSearchIndex):
     text = CharField(document=True, use_template=True)
     first_name = CharField()
     last_name = CharField()
