@@ -1,21 +1,15 @@
+from django.views.generic import DetailView
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
-from django.views.generic import DetailView
-from  django.views.generic.dates import DayArchiveView, MonthArchiveView
 
 from dashboard.views import home, user_dashboard, admin_dashboard
 
 from member.views import add_member, edit_member
 from member.models import Profile
-from invoice.models import Invoice
-
-from invoice.views import (invoice, member_invoice, edit_invoice, print_invoice,
-                           print_invoice_booklet, send_invoice)
 
 urlpatterns = patterns('',
-    url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^$', home, name='home'),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
     url(r'^dashboard/user/$', user_dashboard, name='user_dashboard'),
     url(r'^dashboard/admin/$', admin_dashboard, name='admin_dashboard'),
@@ -29,34 +23,7 @@ urlpatterns = patterns('',
             context_object_name='member',
             template_name='member/detail.html'),
         name='detail_member'),
-
-    url(r'^invoice/$',
-        invoice, name='invoice'),
-
-    url(r'^invoice/by/day/$',
-        DayArchiveView.as_view(template_name='invoice/invoice.html',date_field='due_date',model=Invoice), name='invoice_day'),
-
-    url(r'^invoice/by/month/$',
-        MonthArchiveView.as_view(template_name='invoice/invoice.html',date_field='due_date',model=Invoice), name='invoice_month'),
-
-    url(r'^invoice/(?P<member_id>\d+)/$',
-        member_invoice, name='member_invoice'),
-
-    url(r'^invoice/print/booklet/(?P<member_id>\d+)/$',
-        print_invoice_booklet, name='print_invoice_booklet'),
-
-    url(r'^invoice/edit/(?P<invoice_id>\d+)/$',
-        edit_invoice, name='edit_invoice'),
-
-    url(r'^invoice/print/(?P<invoice_id>\d+)/$',
-        print_invoice, name='print_invoice'),
-
-    url(r'^invoice/print/(?P<invoice_id>\d+)/$',
-        print_invoice, name='print_invoice'),
-
-    url(r'^invoice/send/(?P<invoice_id>\d+)/$',
-        send_invoice, name='send_invoice'),
-
+    url(r'^invoice/', include('invoice.urls')),
     url(r'^search/', include('haystack.urls')),
 )
 urlpatterns += staticfiles_urlpatterns()
