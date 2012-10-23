@@ -15,3 +15,6 @@ coverage.xml
 nosetests.xml
 pylint.out
 gunclub/gunclub/whoosh_index/
+gunclub.sublime-project
+gunclub.sublime-workspace
+
