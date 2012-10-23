@@ -21,6 +21,12 @@ from invoice.forms import EditInvoiceForm
 from invoice import pdf
 
 
+def lower(string):
+    """ Lower all caracters and replace spaces to -.
+    """
+    return string.lower().replace(' ', '-')
+
+
 @login_required
 def invoice(request):
     if not request.user.is_staff:
@@ -89,7 +95,7 @@ def print_invoice_booklet(request, member_id):
     pdf_file = pdf.generate_invoice_booklet_pdf(invoices, profile.user, profile)
     response = HttpResponse(mimetype='application/pdf')
     response['Content-Disposition'] = 'attachment; filename=%s.pdf' % (
-        profile.user.get_full_name())
+        lower(profile.user.get_full_name()))
     response.write(pdf_file)
     return response
 
@@ -103,8 +109,8 @@ def print_invoice(request, invoice_id):
     pdf_file = pdf.generate_invoice_pdf(invoice.due_date, invoice.value,
                                         invoice.user, profile)
     response = HttpResponse(mimetype='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename=%s_%s.pdf' % (
-        user.get_full_name(), invoice.due_date)
+    response['Content-Disposition'] = 'attachment; filename=%s-%s.pdf' % (
+        lower(invoice.user.get_full_name()), invoice.due_date)
     response.write(pdf_file)
     return response
 
