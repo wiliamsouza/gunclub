@@ -2,6 +2,11 @@
 
 Gunclub provides a management software for small gun club.
 
+Status
+------
+
+.. image:: https://travis-ci.org/wiliamsouza/gunclub.png
+
 License
 -------
 
