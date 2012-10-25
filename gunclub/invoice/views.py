@@ -28,20 +28,6 @@ def lower(string):
 
 
 @login_required
-def invoice(request):
-    if not request.user.is_staff:
-        return HttpResponseForbidden()
-    open_invoices = Invoice.objects.filter(is_paid=False).count()
-    paid_invoices = Invoice.objects.filter(is_paid=True).count()
-    return render_to_response(
-        'invoice/invoice.html',
-        {'open_invoices': open_invoices,
-         'paid_invoices': paid_invoices},
-        context_instance=RequestContext(request)
-    )
-
-
-@login_required
 def member_invoice(request, member_id):
     if not request.user.is_staff:
         return HttpResponseForbidden()
