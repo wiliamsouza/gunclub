@@ -1,0 +1,12 @@
+{% extends "base_navbar.html" %}
+{% load i18n %}
+{% load tz %}
+{% block content %}
+<h1>{% trans "Invoices" %} {{ day }}</h1>
+<h3>Invoices</h3>
+{% localtime off %}
+{% for invoice in object_list %}
+	<p>{{ invoice }}</p>
+{% endfor %}
+{% endlocaltime %}
+{% endblock content %}

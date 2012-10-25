@@ -1,0 +1,40 @@
+{% extends "base_navbar.html" %}
+{% load i18n %}
+{% load tz %}
+{% block content %}
+<h2>{% trans "Invoices" %}</h2>
+<ul class="pager">
+	{% if not previous_year %}
+  <li class="disabled">
+  {% else %}
+  <li>
+  {% endif %}
+  	<a href="{% url invoice %}?year={{ previous_year }}">
+  		&larr; {% trans "Previous" %}
+  	</a>
+  </li>
+  <li><a href="{% url invoice %}?year={{ year }}">{{ year }}</a></li>
+	{% if not next_year %}
+  <li class="disabled">
+  {% else %}
+  <li>
+  {% endif %}
+  	<a href="{% url invoice %}?year={{ next_year }}">
+  		{% trans "Next" %} &rarr;
+  	</a>
+  </li>
+</ul> <!-- pager -->
+<div class="pagination">
+	<ul>
+	{% localtime off %}
+	{% for month in date_list %}
+		<li>
+			<a href="{%url invoice_month %}?month={{ month|date:"b" }}&amp;year={{ year }}">
+				{{ month|date:"F" }}
+			</a>
+		</li>
+	{% endfor %}
+	{% endlocaltime %}
+	</ul>
+</div> <!-- pagination -->
+{% endblock content %}
