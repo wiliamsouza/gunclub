@@ -12,3 +12,6 @@ class Invoice(models.Model):
     due_date = models.DateField()
     is_paid = models.BooleanField(default=False)
     value = models.DecimalField(max_digits=5, decimal_places=2)
+
+    def __unicode__(self):
+        return u'%s %s %s' % (self.user.get_full_name(), self.due_date, self.payment_date)
